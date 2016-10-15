@@ -8,9 +8,10 @@
 <div id='container'>
 <!-- Your code here -->
   <div class='creator'>
-    <form>
-      <input class='text' type='text' name='url' ng-model='link'/>
-      <input type="submit" value="Shorten" ng-click='addLink()'>
+    <form name='userForm' ng-submit='addLink(userForm.$valid)'>
+      <input class='text' type='text' name='input' ng-pattern='regexValid' ng-model='link'/>
+      <input type="submit" value="Shorten">
+      <p ng-show='userForm.input.$invalid && !userForm.name.$pristine'>Invalid Link</p>
     </form>
   </div>
 </div>
